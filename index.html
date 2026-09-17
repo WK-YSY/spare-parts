@@ -1,14 +1,167 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>备件易查询</title>
+
+<style>
+
+body{
+    font-family:微软雅黑;
+    padding:20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+h1{
+    color:#1976d2;
+}
+
+input{
+    width:350px;
+    padding:10px;
+}
+
+button{
+    padding:10px 20px;
+    margin-left:10px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th{
+    background:#1976d2;
+    color:white;
+}
+
+th,td{
+    border:1px solid #ddd;
+    padding:8px;
+}
+
+tr:nth-child(even){
+    background:#f7f7f7;
+}
+
+</style>
+
 </head>
+
 <body>
 
-<h1>备件易查询</h1>
+<h1>🔍 备件易查询</h1>
 
-<p>网页已创建成功</p>
+<input
+id="keyword"
+placeholder="请输入备件名称、型号、代码">
+
+<button onclick="searchParts()">
+查询
+</button>
+
+<div id="msg"></div>
+
+<div id="result"></div>
+
+<script>
+
+let spareData=[];
+
+fetch("./spare_parts.json")
+.then(res=>res.json())
+.then(data=>{
+
+    spareData=data.Tabelle1;
+
+    document.getElementById("msg").innerHTML=
+    "已加载 "+spareData.length+" 条备件数据";
+
+});
+
+function searchParts(){
+
+    let keyword=
+    document.getElementById("keyword")
+    .value
+    .trim()
+    .toLowerCase();
+
+    if(keyword===""){
+        return;
+    }
+
+    let result=
+    spareData.filter(item=>
+
+        item["备件名称"]?.toLowerCase().includes(keyword)
+        ||
+        item["备件型号"]?.toLowerCase().includes(keyword)
+        ||
+        item["备件代码"]?.toLowerCase().includes(keyword)
+        ||
+        item["库位号"]?.toLowerCase().includes(keyword)
+        ||
+        item["产线"]?.toLowerCase().includes(keyword)
+        ||
+        item["工位"]?.toLowerCase().includes(keyword)
+
+    );
+
+    showResult(result);
+}
+
+function showResult(rows){
+
+    if(rows.length===0){
+
+        document.getElementById("result").innerHTML=
+        "<h3>未找到数据</h3>";
+
+        return;
+    }
+
+    let html=`
+    <table>
+        <tr>
+            <th>备件名称</th>
+            <th>备件型号</th>
+            <th>备件代码</th>
+            <th>库位号</th>
+            <th>数量</th>
+            <th>产线</th>
+            <th>工位</th>
+        </tr>
+    `;
+
+    rows.forEach(item=>{
+
+        html+=`
+        <tr>
+            <td>${item["备件名称"]}</td>
+            <td>${item["备件型号"]}</td>
+            <td>${item["备件代码"]}</td>
+            <td>${item["库位号"]}</td>
+            <td>${item["数量"]}</td>
+            <td>${item["产线"]}</td>
+            <td>${item["工位"]}</td>
+        </tr>
+        `;
+
+    });
+
+    html+="</table>";
+
+    document.getElementById("result").innerHTML=
+    html;
+}
+
+</script>
 
 </body>
 </html>
