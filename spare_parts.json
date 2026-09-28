@@ -1,0 +1,65 @@
+[
+  {
+    "part_no": "AA02.992.477",
+    "part_name": "前减打磨刷2（端面）",
+    "specification": "QXS-TG0852（带图加工）",
+    "location": "A1-01-04",
+    "quantity": 158,
+    "production_line": "焊接1线",
+    "equipment": "打磨设备"
+  },
+  {
+    "part_no": "AA03.061.923",
+    "part_name": "钢丝刷",
+    "specification": "TC2010001332 Ø250*20",
+    "location": "A1-01-05",
+    "quantity": 24,
+    "production_line": "焊接2线",
+    "equipment": "St.30-抛光打磨试漏"
+  },
+  {
+    "part_no": "AA03.061.923",
+    "part_name": "钢丝刷",
+    "specification": "TC2010001332 Ø250*20",
+    "location": "A1-01-05",
+    "quantity": 24,
+    "production_line": "焊接2线",
+    "equipment": "St.30-抛光打磨试漏"
+  },
+  {
+    "part_no": "AA03.061.923",
+    "part_name": "钢丝刷",
+    "specification": "TC2010001332 Ø250*20",
+    "location": "A1-01-05",
+    "quantity": 24,
+    "production_line": "焊接2线",
+    "equipment": "St.30-抛光打磨试漏"
+  },
+  {
+    "part_no": "AA03.061.923",
+    "part_name": "钢丝刷",
+    "specification": "TC2010001332 Ø250*20",
+    "location": "A1-01-05",
+    "quantity": 24,
+    "production_line": "焊接2线",
+    "equipment": "St.30-抛光打磨试漏"
+  },
+  {
+    "part_no": "AA03.061.923",
+    "part_name": "钢丝刷（Ø250）",
+    "specification": "直径250mm",
+    "location": "A1-01-05",
+    "quantity": 24,
+    "production_line": "焊接4线",
+    "equipment": "打磨站"
+  },
+  {
+    "part_no": "AA03.019.277",
+    "part_name": "打磨刷（外圆）",
+    "specification": "23044.020.01.22.004-4/Ø170*Ø8*80",
+    "location": "A1-01-06",
+    "quantity": 20,
+    "production_line": "焊接3线",
+    "equipment": "打磨设备"
+  }
+]
